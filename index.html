@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 /* ============================================
    TOKENS
@@ -28,6 +29,7 @@
   --purple:#BF5AF2;
   --cyan:#64D2FF;
   --spotify:#1DB954;
+  --orange:#E34C26;
 
   --grad-primary: linear-gradient(135deg, var(--blue), var(--purple));
   --grad-cyan: linear-gradient(135deg, var(--cyan), var(--blue));
@@ -460,7 +462,7 @@ section{ position:relative; padding-block:var(--section-pad); }
 }
 .hero-floating-card i{ font-size:1rem; }
 .card-1{ top:6%; right:-8%; animation-delay:0s; }
-.card-1 i{ color:var(--cyan); }
+.card-1 i{ color:var(--orange); }
 .card-2{ bottom:10%; left:-12%; animation-delay:1.2s; }
 .card-2 i{ color:var(--purple); }
 @keyframes cardFloat{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-14px);} }
@@ -870,7 +872,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <p class="hero-tagline" id="heroTagline">Merancang pengalaman digital yang elegan, fungsional, dan berkesan — memadukan presisi rekayasa dengan rasa estetika yang tenang.</p>
       <div class="hero-actions" id="heroActions">
         <a href="#" class="btn btn-primary magnetic" id="downloadCvBtn"><i class="fa-solid fa-arrow-down"></i>Download CV</a>
-        <a href="#projects" class="btn btn-glass magnetic"><i class="fa-solid fa-layer-group"></i>Lihat Project</a>
+        <a href="#projects" class="btn btn-glass magnetic"><i class="fa-solid fa-layer-group"></i>Lihat 
+        </a>
         <a href="#contact" class="btn btn-glass magnetic"><i class="fa-solid fa-paper-plane"></i>Hubungi Saya</a>
       </div>
     </div>
@@ -880,7 +883,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <img src="hero.jpeg" alt="Foto profil Raka Wirawan" loading="eager">
         </div>
       </div>
-      <div class="hero-floating-card glass card-1"><i class="fa-brands fa-react"></i>2+ Tahun Pengalaman</div>
+      <div class="hero-floating-card glass card-1"><i class="fa-brands fa-html5"></i>2+ Tahun Pengalaman</div>
       <div class="hero-floating-card glass card-2"><i class="fa-solid fa-diagram-project"></i>5+ Project Selesai</div>
     </div>
   </div>
@@ -991,6 +994,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <p class="section-desc">Jejak langkah profesional saya di industri teknologi dan kreatif.</p>
     </div>
     <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <div class="timeline-year">2019 — Sekarang</div>
+          <div class="timeline-title">Toko Sembako</div>
+          <div class="timeline-org">Keluarga · Klaten</div>
+          <p class="timeline-desc">Merancang dan mengembangkan Website yang Digunakan untuk Pembelajar Sekolah Menengah Kejuruan</p>
+          <ul class="timeline-achieve">
+            <li><i class="fa-solid fa-circle"></i>Merancang Alur Kerja Website</li>
+            <li><i class="fa-solid fa-circle"></i>Membangun design system internal yang dipakai dengan konsep belajar interaktif</li>
+            <li><i class="fa-solid fa-circle"></i>Mengembangkan Website dengan Ekosistem yang mudah digunakan</li>
+          </ul>
+        </div>
+      </div>
       <div class="timeline-item reveal">
         <div class="timeline-dot"></div>
         <div class="timeline-card glass">
@@ -1274,26 +1291,29 @@ const SKILLS = [
 ];
 
 const PROJECTS = [
-  {cat:'web',title:'Racik Kuliner',category:'LMS',desc:'Platform belajar materi kejuruan tata boga melalui website dengan desain interaktif',tech:['Html', 'Css', 'Javascript'],role:'Lead Frontend Developer',year:'2026',status:'progress',img:'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=900&auto=format&fit=crop'},
-  {cat:'web',title:'Trend Market Madani',category:'LMS',desc:'Platform belajar materi kejuruan pemasaran melalui website dengan desain interaktif',tech:['Html', 'Css', 'Javascript'],role:'Lead Frontend Developer',year:'2026',status:'progress',img:'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=900&auto=format&fit=crop'},
-  {cat:'web',title:'Ladang Sgripreneur',category:'LMS',desc:'Platform belajar materi kejuruan pertanian melalui website dengan desain interaktif',tech:['Html', 'Css', 'Javascript'],role:'Lead Frontend Developer',year:'2026',status:'progress',img:'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=900&auto=format&fit=crop'},
-  {cat:'web',title:'Dimsumlicious',category:'E-Commerce Platform',desc:'Platform belanja online dengan checkout satu klik dan dashboard analitik penjual real-time.',tech:['React','Node.js','Stripe'],role:'Lead Frontend Developer',year:'2025',status:'live',img:'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=900&auto=format&fit=crop'},
+  {cat:'web',title:'Racik Kuliner',category:'LMS',desc:'Platform belajar materi kejuruan tata boga melalui website dengan desain interaktif',tech:['Html', 'Css', 'Javascript'],role:'Lead Frontend Developer',year:'2026',status:'progress',img:'racik_kuliner.png'},
+  {cat:'web',title:'Trend Market Madani',category:'LMS',desc:'Platform belajar materi kejuruan pemasaran melalui website dengan desain interaktif',tech:['Html', 'Css', 'Javascript'],role:'Lead Frontend Developer',year:'2026',status:'progress',img:'market_madani.png'},
+  {cat:'web',title:'Ladang Agripreneur',category:'LMS',desc:'Platform belajar materi kejuruan pertanian melalui website dengan desain interaktif',tech:['Html', 'Css', 'Javascript'],role:'Lead Frontend Developer',year:'2026',status:'progress',img:'ladang_agripreneur.png'},
+  {cat:'web',title:'Dimsumlicious',category:'E-Commerce Platform',desc:'Platform belanja online dengan checkout satu klik dan dashboard analitik penjual real-time.',tech:['React','Node.js','Stripe'],role:'Lead Frontend Developer',year:'2025',status:'live',img:'dimsumlicious.png'},
 
 
   // {cat:'mobile',title:'Aurora Health',category:'Mobile Health App',desc:'Aplikasi kesehatan mobile-first untuk pemantauan aktivitas dan konsultasi dokter daring.',tech:['React Native','Firebase','Figma'],role:'UI/UX Designer & Developer',year:'2023',status:'live',img:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=900&auto=format&fit=crop'},
-  {cat:'ui',title:'Desain Nama Kelulusan',category:'UI Design System',desc:'Sistem desain modular untuk dashboard SaaS analitik data dengan lebih dari 80 komponen.',tech:['Canva', 'Microsoft Excel', 'Google Drive'],role:'Product Designer',year:'2024',status:'archived',img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop'},
+  {cat:'ui',title:'Desain Nama Kelulusan',category:'UI Design System',desc:'Sistem desain modular untuk dashboard SaaS analitik data dengan lebih dari 80 komponen.',tech:['Canva', 'Microsoft Excel', 'Google Drive'],role:'Product Designer',year:'2024',status:'archived',img:'kelulusan.png'},
   // {cat:'backend',title:'Lumen CMS',category:'Headless CMS',desc:'CMS headless ringan untuk mengelola konten multi-platform dengan REST & GraphQL API.',tech:['Node.js','GraphQL','PostgreSQL'],role:'Backend Engineer',year:'2022',status:'archived',img:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=900&auto=format&fit=crop'},
-  {cat:'web',title:'Sejarah Candi Plaosan',category:'Agency Landing Page',desc:'Landing page interaktif untuk studio kreatif dengan animasi scroll dan micro-interaction.',tech:['Html', 'Css', 'Javascript'],role:'Frontend Developer',year:'2024',status:'live',img:'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=900&auto=format&fit=crop'},
+  {cat:'web',title:'Sejarah Candi Plaosan',category:'Agency Landing Page',desc:'Landing page interaktif untuk studio kreatif dengan animasi scroll dan micro-interaction.',tech:['Html', 'Css', 'Javascript'],role:'Frontend Developer',year:'2024',status:'live',img:'candi_plaosan.png'},
   // {cat:'backend',title:'Vantage Analytics',category:'Data Dashboard',desc:'Dashboard analitik bisnis real-time dengan visualisasi data dan sistem notifikasi otomatis.',tech:['Vue.js','Express','Chart.js'],role:'Fullstack Developer',year:'2022',status:'live',img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop'},
 ];
 
 const CERTS = [
-  {icon:'fa-brands fa-google',name:'Data Analyst',issuer:'Special Skill',date:'Jan 2024',cred:'GUX-2024-8821',active:true},
-  {icon:'fa-brands fa-meta',name:'Python Programer',issuer:'Special Skill',date:'Aug 2023',cred:'MFE-2023-1147',active:true},
-  {icon:'fa-solid fa-code-branch',name:'Python Introduction for Data Analyst',issuer:'MySkill',date:'Mar 2022',cred:'FCC-JSD-3390',active:true},
-  {icon:'fa-solid fa-server',name:'AI for Work Productifity',issuer:'MySkill',date:'Nov 2021',cred:'AWS-CP-7723',active:true},
-  {icon:'fa-solid fa-server',name:'Brand Identity Design',issuer:'MySkill',date:'Nov 2021',cred:'AWS-CP-7723',active:true},
-  {icon:'fa-solid fa-server',name:'Data Science & AI MAchine Learning',issuer:'DiBimbing',date:'Nov 2021',cred:'AWS-CP-7723',active:true},
+  {icon:'fa-solid fa-code-branch',name:'Data Analyst',issuer:'Special Skill',date:'Jan 2026',cred:'GUX-2024-8821',active:true},
+  // {icon:'fa-brands fa-code-branch',name:'Python Programer',issuer:'Special Skill',date:'Aug 2023',cred:'MFE-2023-1147',active:true},
+  {icon:'fa-solid fa-code-branch',name:'Python Programer',issuer:'Special Skill',date:'Feb 2026',cred:'MFE-2023-1147',active:true},
+  {icon:'fa-solid fa-code-branch',name:'Python for Data Analyst',issuer:'MySkill',date:'Feb 2026',cred:'FCC-JSD-3390',active:true},
+  {icon:'fa-solid fa-code-branch',name:'AI for Work Productifity',issuer:'MySkill',date:'Feb 2026',cred:'AWS-CP-7723',active:true},
+  {icon:'fa-solid fa-server',name:'Brand Identity Design',issuer:'MySkill',date:'Mar 2026',cred:'AWS-CP-7723',active:true},
+  {icon:'fa-solid fa-server',name:'Data Science & AI ML',issuer:'DiBimbing',date:'Feb 2026',cred:'AWS-CP-7723',active:true},
+  {icon:'fa-solid fa-book',name:'Praktik Kerja Lapangan',issuer:'SMK Negeri 1 Klaten',date:'Mar 2026',cred:'AWS-CP-7723',active:true},
+  {icon:'fa-solid fa-book',name:'Kosen Komputer Klaten',issuer:'Kosen',date:'Apr 2026',cred:'AWS-CP-7723',active:true},
 ];
 
 const TESTIMONIALS = [
@@ -1497,6 +1517,59 @@ document.getElementById('spotifyAlbums').innerHTML = SPOTIFY_ALBUMS.map((t,i)=>`
   <li><span class="num">${String(i+1).padStart(2,'0')}</span><div class="meta"><div class="t-name">${t.name}</div><div class="t-sub">${t.sub}</div></div></li>
 `).join('');
 
+
+/* ============================================
+   EMAILJS INIT
+============================================ */
+
+emailjs.init({
+    publicKey: "VfcQ6AH_zCnvwsHPy"
+});
+
+/* ============================================
+   SEND EMAIL
+============================================ */
+
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+contactForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    formStatus.innerHTML = "⏳ Mengirim pesan...";
+
+    emailjs.send(
+        "service_nov26",
+        "template_hrcfrtn",
+        {
+            from_name: document.getElementById("cName").value,
+            from_email: document.getElementById("cEmail").value,
+            subject: document.getElementById("cSubject").value,
+            message: document.getElementById("cMessage").value,
+            time: new Date().toLocaleString("id-ID")
+        }
+    )
+
+    .then(() => {
+
+        formStatus.innerHTML = "✅ Pesan berhasil dikirim!";
+        formStatus.style.color = "#22c55e";
+
+        contactForm.reset();
+
+    })
+
+    .catch((error) => {
+
+        console.error(error);
+
+        formStatus.innerHTML = "❌ Gagal mengirim pesan.";
+        formStatus.style.color = "#ef4444";
+
+    });
+
+});
 /* ============================================
    PRELOADER
 ============================================ */
@@ -1591,7 +1664,7 @@ window.addEventListener('mousemove', e=>{
   cursorDot.style.left=mouseX+'px'; cursorDot.style.top=mouseY+'px';
 });
 (function animateGlow(){
-  glowX += (mouseX-glowX)*0.12; glowY += (mouseY-glowY)*0.12;
+  glowX += (mouseX-glowX)*0.10; glowY += (mouseY-glowY)*0.10;
   cursorGlow.style.left=glowX+'px'; cursorGlow.style.top=glowY+'px';
   requestAnimationFrame(animateGlow);
 })();
